@@ -1,0 +1,27 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Username</th>
+      <th scope="col">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users" >
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.prenom}}</td>
+      <td>{{user.nom}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.roles}}</td>
+      <td>
+      <mat-slide-toggle class="slider" (change)="changeStatus(user.id, user.isActive)" ,[(ngModel)]="user.isActive">
+        <span class="badge badge-success p-2" *ngIf="user.isActive == true "> Activé </span>
+        <span class="badge badge-danger p-2" *ngIf="user.isActive == false ">Bloqué </span>
+      </mat-slide-toggle></td>
+    </tr>
+  </tbody>
+</table>
